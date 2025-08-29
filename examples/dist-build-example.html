@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Handsontable Renderers - Dist Build Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.js"></script>
+  <script src="../dist/handsontable-renderers.min.js"></script>
+  <style>
+    .dist-table .ht_master .htCore td {
+      background: #e3f2fd;
+    }
+    .badge { font-size: 0.95em; }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4">Using Renderers from Dist Build</h2>
+    <div id="hot" class="shadow rounded"></div>
+  </div>
+  <script>
+    // Access renderers from UMD build
+    const {
+      textRenderer,
+      badgeRenderer,
+      dateRenderer,
+      imageRenderer,
+      linkRenderer
+    } = HandsontableRenderers;
+
+    const data = [
+      ['Text Example', 'Badge', '2025-08-29', 'https://via.placeholder.com/80', 'https://handsontable.com'],
+      ['Another Text', 'Info', '2024-12-01', 'https://via.placeholder.com/100', 'https://github.com'],
+      ['Sample', 'Success', '2023-01-15', 'https://via.placeholder.com/60', 'https://google.com'],
+      ['PadMe', 'Warning', '2022-05-20', 'https://via.placeholder.com/120', 'https://example.com'],
+    ];
+
+    const container = document.getElementById('hot');
+    new Handsontable(container, {
+      data,
+      colHeaders: [
+        'Text (textRenderer)',
+        'Badge (badgeRenderer)',
+        'Date (dateRenderer)',
+        'Image (imageRenderer)',
+        'Link (linkRenderer)'
+      ],
+      columns: [
+        { renderer: textRenderer, className: 'dist-table' },
+        { renderer: badgeRenderer, className: 'dist-table' },
+        { renderer: dateRenderer, className: 'dist-table' },
+        { renderer: imageRenderer, className: 'dist-table' },
+        { renderer: linkRenderer, className: 'dist-table' }
+      ],
+      cells: function(row, col) {
+        const cellProperties = {};
+        if (col === 1) cellProperties.badgeColor = '#43a047';
+        return cellProperties;
+      },
+      width: '100%',
+      height: 400,
+      stretchH: 'all',
+      rowHeaders: true,
+      licenseKey: 'non-commercial-and-evaluation'
+    });
+  </script>
+</body>
+</html>
