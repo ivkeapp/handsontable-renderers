@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Handsontable Advanced Text Renderers Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.js"></script>
+  <script type="module" src="../src/renderers/textRenderer.js"></script>
+  <style>
+    .wrap-col .ht_master .htCore td { background: #e3f2fd; }
+    .green-col .ht_master .htCore td { background: #e8f9e5; }
+    .icon-col .ht_master .htCore td { background: #fce4ec; }
+    .badge-col .ht_master .htCore td { background: #f3e5f5; }
+    .note-col .ht_master .htCore td { background: #fffde7; }
+    .price-col .ht_master .htCore td { background: #e8f5e9; }
+    .tooltip-col .ht_master .htCore td { background: #e1f5fe; }
+    .conditional-col .ht_master .htCore td { background: #fbe9e7; }
+    .multi-col .ht_master .htCore td { background: #ede7f6; }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4">Advanced Text Renderers Example</h2>
+    <div id="hot" class="shadow rounded"></div>
+  </div>
+  <script type="module">
+    import {
+      textWrapRenderer,
+      greenRenderer,
+      textWithIconRenderer,
+      badgeRenderer,
+      noteRenderer,
+      formatNumberRender,
+      tooltipRenderer,
+      conditionalColorRenderer,
+      multiLineRenderer
+    } from '../src/renderers/textRenderer.js';
+    const data = Array.from({length: 15}, (_, i) => [
+      `Long text example ${i+1} with wrapping. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+      `Green cell ${i+1}`,
+      `Info ${i+1}`,
+      `Badge ${i%3===0?'VIP':'REG'}`,
+      `Note for row ${i+1}`,
+      (i+1)*1234.56,
+      `Tooltip ${i+1}`,
+      i%2===0 ? (i+1)*100 : -(i+1)*100,
+      `Line 1\nLine 2\nLine 3 for row ${i+1}`,
+      `User${i+1}`
+    ]);
+    const container = document.getElementById('hot');
+    new Handsontable(container, {
+      data,
+      colHeaders: [
+        "Text Wrap",
+        "Green Cell",
+        "Icon Cell",
+        "Badge Cell",
+        "Note Cell",
+        "Price Cell",
+        "Tooltip Cell",
+        "Conditional Color",
+        "Multi-line Cell",
+        "User"
+      ],
+      columns: [
+        { renderer: textWrapRenderer, className: 'wrap-col', width: 220 },
+        { renderer: greenRenderer, className: 'green-col' },
+        { renderer: textWithIconRenderer, className: 'icon-col', iconClass: 'fas fa-info-circle' },
+        { renderer: badgeRenderer, className: 'badge-col', badgeColor: '#d81b60' },
+        { renderer: noteRenderer, className: 'note-col' },
+        { renderer: formatNumberRender, className: 'price-col' },
+        { renderer: tooltipRenderer, className: 'tooltip-col' },
+        { renderer: conditionalColorRenderer, className: 'conditional-col' },
+        { renderer: multiLineRenderer, className: 'multi-col' },
+        {}
+      ],
+      width: '100%',
+      height: 500,
+      stretchH: 'all',
+      rowHeaders: true,
+      licenseKey: 'non-commercial-and-evaluation'
+    });
+  </script>
+</body>
+</html>

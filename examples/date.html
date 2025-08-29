@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Handsontable Date Renderer Example</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/handsontable@6.2.0/dist/handsontable.full.min.js"></script>
+  <script type="module" src="../src/renderers/dateRenderer.js"></script>
+  <style>
+    .date-col .ht_master .htCore td {
+      background: #fffde7;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4">Date Renderer Example</h2>
+    <div id="hot" class="shadow rounded"></div>
+  </div>
+  <script type="module">
+    import { dateRenderer } from '../src/renderers/dateRenderer.js';
+    const dates = ["2025-08-29", "2024-12-01", null, "invalid", "2023-05-15", "2022-11-30", "2021-01-01", "2020-07-20"];
+    const data = Array.from({length: 15}, (_, i) => [
+      dates[i % dates.length],
+      `User${i+1}`,
+      `user${i+1}@mail.com`,
+      `Role${(i%3)+1}`,
+      `Dept${(i%4)+1}`,
+      `+381 60 1234${i}`,
+      `City${(i%5)+1}`,
+      `Extra${i}`,
+      `Note${i}`
+    ]);
+    const container = document.getElementById('hot');
+    new Handsontable(container, {
+      data,
+      colHeaders: ["Date (Renderer)", "Name", "Email", "Role", "Department", "Phone", "City", "Extra", "Note"],
+      columns: [
+        { renderer: dateRenderer, className: 'date-col' },
+        {}, {}, {}, {}, {}, {}, {}, {}, {}
+      ],
+      width: '100%',
+      height: 500,
+      stretchH: 'all',
+      rowHeaders: true,
+      licenseKey: 'non-commercial-and-evaluation'
+    });
+  </script>
+</body>
+</html>
