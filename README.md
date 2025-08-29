@@ -4,13 +4,14 @@ A boilerplate library for custom cell renderers for [Handsontable](https://hands
 
 ## Features
 
-- **Text Renderer**: Basic and advanced text formatting.
-- **Badge Renderer**: Display values as styled badges.
-- **Date Renderer**: Format dates, including localization and custom formats.
-- **Image Renderer**: Show images in table cells.
-- **Link Renderer**: Render clickable links.
-- **Additional Renderers**: Conditional color, tooltips, multi-line, price, integer formatting, and more.
-- **Formatter Utilities**: Helper functions for value formatting.
+- **Text Renderer**: Basic and advanced text formatting
+- **Badge Renderer**: Display values as styled badges
+- **Date Renderer**: Format dates, including localization and custom formats
+- **Image Renderer**: Show images in table cells
+- **Link Renderer**: Render clickable links
+- **Additional Renderers**: Conditional color, tooltips, multi-line, price, integer formatting, and more
+- **Formatter Utilities**: Helper functions for value formatting
+
 
 ## Getting Started
 
@@ -64,20 +65,35 @@ columns: [
 ]
 ```
 
+
 ## Examples
 
-See the `examples/` folder for ready-to-use HTML demos:
+Explore the `examples/` folder for ready-to-use HTML demos. Each example demonstrates a specific renderer or feature:
 
-- `basic.html` – Text renderer
-- `badge.html` – Badge renderer
-- `date.html`, `date-advanced.html` – Date renderers
-- `image.html` – Image renderer
-- `text-advanced.html` – Advanced text renderers
+- [basic.html](./examples/basic.html) – Text renderer
+- [badge.html](./examples/badge.html) – Badge renderer
+- [badge-advanced.html](./examples/badge-advanced.html) – Advanced badge renderer
+- [date.html](./examples/date.html) – Date renderer
+- [date-advanced.html](./examples/date-advanced.html) – Advanced date renderer
+- [image.html](./examples/image.html) – Image renderer
+- [text-advanced.html](./examples/text-advanced.html) – Advanced text renderers
+- [renderers-formatters.html](./examples/renderers-formatters.html) – Renderers with formatters usage
+- [dist-build-example.html](./examples/dist-build-example.html) – Using renderers from the dist build
 
-## Customization
 
-You can extend or modify renderers in `src/renderers/` and add new helpers in `src/utils/formatters.js`.
+
+## Tribute to Handsontable
+
+This project is built on top of the amazing [Handsontable](https://handsontable.com/) library. Handsontable is a powerful JavaScript data grid that makes working with tables and spreadsheets in web applications a joy. We deeply appreciate the work of the Handsontable team and their commitment to open source and developer experience. If you find this project useful, please consider supporting or contributing to Handsontable as well!
+
+You can learn more and get started with Handsontable at [handsontable.com](https://handsontable.com/).
+
+
 
 ## License
 
-GNU v3
+This project is licensed under the GNU General Public License v3.0.
+
+## Contributing
+
+Contributions are welcome! If you have ideas, improvements, or bug fixes, feel free to open an issue or submit a pull request.
