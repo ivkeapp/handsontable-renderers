@@ -1,4 +1,5 @@
 export { badgeRenderer } from "./renderers/badgeRenderer";
+export { colorBadgeRenderer, outlineBadgeRenderer, iconBadgeRenderer, gradientBadgeRenderer } from "./renderers/badgeRenderer";
 export { textRenderer } from "./renderers/textRenderer";
 export {
 	textWrapRenderer,
