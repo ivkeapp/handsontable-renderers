@@ -81,14 +81,15 @@ Explore the `examples/` folder for ready-to-use HTML demos. Each example demonst
 - [dist-build-example.html](./examples/dist-build-example.html) – Using renderers from the dist build
 
 
+## Customization
+
+You can extend or modify renderers in `src/renderers/` and add new helpers in `src/utils/formatters.js`. The code is modular and easy to adapt for your own requirements.
 
 ## Tribute to Handsontable
 
 This project is built on top of the amazing [Handsontable](https://handsontable.com/) library. Handsontable is a powerful JavaScript data grid that makes working with tables and spreadsheets in web applications a joy. We deeply appreciate the work of the Handsontable team and their commitment to open source and developer experience. If you find this project useful, please consider supporting or contributing to Handsontable as well!
 
 You can learn more and get started with Handsontable at [handsontable.com](https://handsontable.com/).
-
-
 
 ## License
 
